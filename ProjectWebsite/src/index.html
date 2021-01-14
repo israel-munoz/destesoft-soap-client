@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOAP Client for .NET | DesteSoft</title>
+  <meta name="title" content="SOAP Client for .NET | DesteSoft">
+  <meta name="description" content="SoapClient is a simple library to simplify requests to SOAP services, avoiding the need to add them as Web Service References to your projects.">
+  <meta name="author" content="Israel Muñoz">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.destesoft.com/soap-client">
+  <meta property="og:title" content="SOAP Client for .NET | DesteSoft">
+  <meta property="og:description" content="SoapClient is a simple library to simplify requests to SOAP services, avoiding the need to add them as Web Service References to your projects.">
+  <meta property="og:image" content="https://www.destesoft.com/soap-client/images/soap-client-poster.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.destesoft.com/soap-client">
+  <meta property="twitter:title" content="SOAP Client for .NET | DesteSoft">
+  <meta property="twitter:description" content="SoapClient is a simple library to simplify requests to SOAP services, avoiding the need to add them as Web Service References to your projects.">
+  <meta property="twitter:image" content="https://www.destesoft.com/soap-client/images/soap-client-poster.png">
+  <link rel="canonical" href="https://www.destesoft.com/soap-client">
+  <link rel="shortcut icon" href="images/soap-client.svg" type="image/svg">
+  <link rel="preload" href="index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="index.css"></noscript>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>SOAP Client for .NET</h1>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <article>
+        <h2>Making SOAP requests easy!</h2>
+        <p>The SOAP messaging protocol was extensively used in the past. We have new (and better) options today, like REST.
+          However, many services we may require will still use the SOAP protocol.</p>
+        <p><b>SOAP Client for .NET</b> allows us to make requests to SOAP services in a much simpler and cleaner way than
+          using the old <i>Web Service References</i> from early versions of Visual Studio.</p>
+        <p>SOAP Client is configured at runtime, executes the method we ask at the moment and allows us to map the result
+          directly to a native type or custom class, depending on the response we are expecting.</p>
+      </article>
+      <article>
+        <h2>Installation</h2>
+        <p>You can install the package from the Visual Studio <a href="https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio" target="_blank" rel="external nofollow noreferrer">Package Management</a> window or using the <code>Install-Package</code> command:</p>
+        <pre id="code-install" class="loaded">Install-Package DesteSoft.SoapClient</pre>
+      </article>
+      <article>
+        <h2>How to use it</h2>
+        <p><b>SOAP Client</b> consists in only two steps: creating the client instance and making the request.</p>
+        <pre id="code-init" class="code loaded"><span class="comment">// Create instance of client</span>
+<span class="class">SoapClient</span> client = <span class="reserved">new</span> <span class="class">SoapClient</span>(<span class="string">"[SOAP service URL]"</span>, <span class="string">"[SOAP service namespace]"</span>);
+
+<span class="comment">// Make a void request</span>
+client.Post(<span class="string">"[SOAP action]"</span>, [optional parameters]);
+
+<span class="comment">// Make a request and map result to a variable</span>
+<span class="reserved">string</span> result = client.Post&lt;<span class="reserved">string</span>&gt;(<span class="string">"[SOAP action]"</span>, [parameters]);</pre>
+        <dl>
+          <dt>SOAP service URL</dt>
+          <dd>The URL to the service we'll make requests to. If it's a ASP.NET Web Service, it should be the path to the
+            <code>ASMX</code> file.</dd>
+          <dt>SOAP service namespace</dt>
+          <dd>The namespace can be found in the SOAP service <code><abbr title="Web Service Definition Languate">WSDL</abbr></code>
+            as the <code>targetNamespace</code> attribute of the root node.</dd>
+          <dt>SOAP action</dt>
+          <dd>The specific <i>web method</i> we are requesting.</dd>
+          <dt>parameters (optional)</dt>
+          <dd>The parameters required by the SOAP action. They can be found in the service's WSDL, in the corresponding
+            <code>element</code> node inside <code>types</code>.</dd>
+        </dl>
+        <p>There are different ways to make the request, all of them use the same parameters.</p>
+        <pre id="code-methods" class="code loaded"><span class="comment">// Sync request returning no value</span>
+client.Post(<span class="string">"SOAP action"</span>);
+
+<span class="comment">// Async request returning no value</span>
+<span class="reserved">await</span> client.PostAsync(<span class="string">"SOAP action"</span>);
+
+<span class="comment">// Sync request returning a value</span>
+<span class="reserved">int</span> value = client.Post&lt;<span class="reserved">int</span>&gt;(<span class="string">"SOAP action"</span>);
+
+<span class="comment">// Async request returning a value</span>
+<span class="class">CustomClass</span> result = await client.PostAsync&lt;<span class="class">CustomClass</span>&gt;(<span class="string">"SOAP action"</span>);</pre>
+      </article>
+      <article>
+        <h2>Mapping to custom classes</h2>
+        <p>You may need to refer to the SOAP service's WSDL to check the type returned from a SOAP action.</p>
+        <p>The type sent to the generic method, <code>Post&lt;T&gt;</code> or <code>PostAsync&lt;T&gt;</code>, should
+          match the SOAP action response type. If not matched, the <code>default</code> value will be set instead.</p>
+        <pre id="code-wsdl" class="xml loaded">&lt;definitions ...&gt;
+  &lt;types&gt;
+    &lt;schema ...&gt;
+      ...
+      &lt;complexType <span class="attribute">name=</span><span class="value"><b>"Item"</b></span>&gt;
+        &lt;sequence&gt;
+          &lt;element <span class="attribute">minOccurs=</span><span class="value">"1"</span> <span class="attribute">maxOccurs=</span><span class="value">"1"</span> <span class="attribute">name=</span><span class="value">"Id"</span> <span class="attribute">type=</span><span class="value">"int"</span> /&gt;
+          &lt;element <span class="attribute">minOccurs=</span><span class="value">"1"</span> <span class="attribute">maxOccurs=</span><span class="value">"1"</span> <span class="attribute">name=</span><span class="value">"Name"</span> <span class="attribute">type=</span><span class="value">"string"</span> /&gt;
+          &lt;element <span class="attribute">minOccurs=</span><span class="value">"1"</span> <span class="attribute">maxOccurs=</span><span class="value">"1"</span> <span class="attribute">name=</span><span class="value">"CreatedDate"</span> <span class="attribute">type=</span><span class="value">"dateTime"</span> /&gt;
+        &lt;/sequence&gt;
+      &lt;/complexType&gt;
+      &lt;element <span class="attribute">name=</span><span class="value">"SoapActionResponse"</span>&gt;
+        &lt;complexType&gt;
+          &lt;sequence&gt;
+            &lt;element <span class="attribute">minOccurs=</span><span class="value">"0"</span> <span class="attribute">maxOccurs=</span><span class="value">"1"</span> <span class="attribute">name=</span><span class="value">"SoapActionResult"</span> <span class="attribute">type=</span><span class="value"><b>"Item"</b></span> /&gt;
+          &lt;/sequence&gt;
+        &lt;/complexType&gt;
+      &lt;/element&gt;
+      ...
+    &lt;/schema&gt;
+  &lt;/types&gt;
+  ...
+&lt;/definitions&gt;</pre>
+        <p>In this example, the mapping class should look like this:</p>
+        <pre id="code-mapclass" class="code loaded"><span class="reserved">public class</span> <span class="class">ResponseItem</span>
+{
+  <span class="reserved">public int</span> Id { <span class="reserved">get</span>; <span class="reserved">set</span>; }
+  <span class="reserved">public string</span> Name { <span class="reserved">get</span>; <span class="reserved">set</span>; }
+  <span class="reserved">public</span> <span class="class">DateTime</span> Id { <span class="reserved">get</span>; <span class="reserved">set</span>; }
+}</pre>
+      <p>Not all of the properties need to match in the class. Unmatched values will get a <code>default</code> value.</p>
+      </article>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div>Copyright &copy; DesteSoft 2021</div>
+      <div><a class="github" href="https://github.com/israel-munoz/destesoft-soap-client" target="_blank" rel="external nofollow noreferrer"><span>Go to sourcecode</span></a></div>
+    </div>
+  </footer>
+</body>
+</html>

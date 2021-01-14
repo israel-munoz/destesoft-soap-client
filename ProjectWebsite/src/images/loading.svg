@@ -1,0 +1,69 @@
+<svg viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="line" d="m0,1v3" fill="" stroke="#0005" stroke-width="0.5" stroke-linecap="round"/>
+  </defs>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(0)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="0;1;1;1;1;0;0;0;0"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(45)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="0;0;1;1;1;1;0;0;0"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(90)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="0;0;0;1;1;1;1;0;0"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(135)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="0;0;0;0;1;1;1;1;0"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(180)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="0;0;0;0;0;1;1;1;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(225)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="1;0;0;0;0;0;1;1;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(270)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="1;1;0;0;0;0;0;1;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#line" x="5" y="5" transform-origin="5 5" transform="rotate(315)">
+    <animate attributeType="XML"
+      attributeName="opacity"
+      keyTimes="0;.125;.25;.375;.5;.625;.75;.875;1"
+      values="1;1;1;0;0;0;0;0;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </use>
+</svg>

@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'roboto', 'segoe ui', sans-serif;
+  margin: 0;
+}
+
+.container {
+  padding: 0.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  top: 0;
+  width: 100%;
+  background:hsl(120, 30%, 80%);
+}
+
+header .container {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .container::before {
+  content: url(images/soap-client.svg);
+  width: 2.5em;
+  height: 2.5em;
+  display: block;
+}
+
+h1,
+h2,
+b {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 160%;
+  margin: 0;
+}
+
+h2 {
+  font-size: 130%;
+  margin: 0;
+}
+
+main {
+  outline: none;
+}
+
+pre,
+code {
+  font-family: 'roboto mono', consolas, monospace;
+  font-size: 90%;
+  font-weight: 500;
+}
+
+pre {
+  background: hsl(153, 20%, 95%) url(images/loading.svg) no-repeat 50% .25em / 1.5em;
+  overflow-x: auto;
+  padding: .25em;
+  line-height: 1.5;
+  min-height: 2em;
+}
+
+pre.loaded {
+  background-image: none;
+}
+
+.code .comment {
+  color: hsl(120, 100%, 25%);
+}
+
+.code .class {
+  color: hsl(177, 48%, 32%);
+}
+
+.code .reserved {
+  color: hsl(216, 98%, 32%);
+}
+
+.code .string {
+  color: hsl(17, 96%, 32%);
+}
+
+.xml {
+  color: hsl(340, 100%, 32%);
+}
+
+.xml .attribute {
+  color: hsl(17, 96%, 32%);
+}
+
+.xml .value {
+  color: hsl(216, 98%, 32%);
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  width: 100%;
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3em;
+}
+
+footer .github {
+  background: #f3f3f3;
+  border: solid 1px #b0b0b0;
+  border-radius: 1.25em;
+  display: inline-flex;
+  padding: 0.25em 0.5em;
+  height: 2em;
+  align-items: center;
+  overflow: hidden;
+  text-decoration: none;
+  color: #555;
+}
+
+footer .github::after {
+  content: '';
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  background: url(images/github.svg) no-repeat center / cover;
+}
+
+footer .github span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width linear .2s, padding linear .2s;
+  width: 0;
+}
+
+footer .github:hover span {
+  width: 7.9em;
+  padding: 0 .25em 0 0;
+}
