@@ -1,0 +1,33 @@
+{
+  "name": "destesoft-soapclient-website",
+  "version": "1.0.0",
+  "description": "DesteSoft SOAP Client project website.",
+  "keywords": [
+    "dotnet",
+    "soap"
+  ],
+  "homepage": "https://www.destesoft.com/soap-client/",
+  "bugs": {
+    "url": "https://github.com/israel-munoz/destesoft-soap-client/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Israel Muñoz",
+    "email": "israel.munoz.v@gmail.com",
+    "url": "https://www.destesoft.com"
+  },
+  "readme": "https://github.com/israel-munoz/destesoft-soap-client/blob/master/README.md",
+  "repository": "https://github.com/israel-munoz/destesoft-soap-client",
+  "scripts": {
+    "build": "node build.js",
+    "start": "http-server ./src -p 8080 -S",
+    "start-prod": "http-server ./dist -p 8081 -S",
+    "prod": "npm run build && npm run start-prod"
+  },
+  "devDependencies": {
+    "csso": "^4.2.0",
+    "fs-readdir-recursive": "^1.1.0",
+    "html-minifier-terser": "^5.1.1",
+    "http-server": "^0.12.3"
+  }
+}

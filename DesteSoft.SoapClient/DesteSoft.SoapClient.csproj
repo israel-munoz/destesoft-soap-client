@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <AssemblyName>DesteSoft.SoapClient</AssemblyName>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <Authors>Israel Muñoz</Authors>
+        <Company>DesteSoft</Company>
+        <Product>SoapClient</Product>
+        <Description>A client for SOAP requests.</Description>
+        <Copyright>Copyright © DesteSoft 2021</Copyright>
+        <Summary>SoapClient is a simple library to simplify requests to SOAP services, avoiding the need to add them as Web Service References to your projects.</Summary>
+        <Title>DesteSoft SOAP Client</Title>
+        <RepositoryUrl>https://github.com/israel-munoz/destesoft-soap-client.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageId>DesteSoft.SoapClient</PackageId>
+        <PackageTags>soap webservice asmx</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageIconUrl>https://www.destesoft.com/soap-client/images/icon.png</PackageIconUrl>
+        <PackageIconFullPath>$(MSBuildThisFileDirectory)icon.png</PackageIconFullPath>
+        <PackageProjectUrl>https://www.destesoft.com/soap-client</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageLicenseUrl>https://github.com/israel-munoz/destesoft-soap-client/blob/main/LICENSE</PackageLicenseUrl>
+        <PackageReleaseNotes>Version 1.0.0</PackageReleaseNotes>
+        <RootNamespace>DesteSoft.SoapClient</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="icon.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
+</Project>

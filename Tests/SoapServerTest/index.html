@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link href="resources/icon.svg" rel="shortcut icon" type="image/svg" />
+  <link href="resources/main.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>SOAP Test Server</h1>
+  </header>
+  <main>
+    <section class="functions">
+      <form action="SoapService.asmx/HelloWorld" method="get">
+        <h3>Hello World</h3>
+        <button type="submit">Send</button>
+        <pre class="result"></pre>
+      </form>
+
+      <form action="SoapService.asmx/GetCurrentDate" method="post">
+        <h3>Get current date</h3>
+        <label>
+          <input type="checkbox" name="utc" />
+          <span>UTC</span>
+        </label>
+        <button type="submit">Send</button>
+        <pre class="result"></pre>
+      </form>
+
+      <form action="SoapService.asmx/Fibonacci" method="post">
+        <h3>Fibonacci sequence</h3>
+        <label>Limit
+          <input type="number" name="limit" min="2" max="30" value="2" autocomplete="off"/>
+        </label>
+        <button type="submit">Send</button>
+        <pre class="result"></pre>
+      </form>
+
+      <form action="SoapService.asmx/GetLatestPerson" method="get">
+        <h3>Get latest person</h3>
+        <button type="submit">Send</button>
+        <pre class="result"></pre>
+      </form>
+
+      <form action="SoapService.asmx/AddPerson" method="post">
+        <h3>Add person</h3>
+        <label>Name
+          <input type="text" name="name" required autocomplete="off" />
+        </label>
+        <label>Birthdate
+          <input type="date" name="birthdate" required />
+        </label>
+        <button type="submit">Send</button>
+        <pre class="result"></pre>
+      </form>
+    </section>
+  </main>
+  <footer>
+    Copyright &copy; DesteSoft 2021
+  </footer>
+  <script src="resources/main.js"></script>
+</body>
+</html>

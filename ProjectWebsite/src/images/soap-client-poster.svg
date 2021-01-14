@@ -1,0 +1,64 @@
+<svg viewBox="0 0 192 100" version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    text {
+      alignment-baseline: middle;
+      text-anchor: middle;
+      font-family: 'imagefont', 'consolas';
+      font-weight: 600;
+    }
+  </style>
+  <defs>
+    <filter id="glow">
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .7 0"/>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <g id="cog-part">
+      <path d="m0-2h1.2l.3,4h-3l.3-4z"/>
+    </g>
+    <g id="cog">
+      <use xlink:href="#cog-part" x="0" y="-5" />
+      <use xlink:href="#cog-part" x="0" y="-5" transform-origin="0 0" transform="rotate(60)" />
+      <use xlink:href="#cog-part" x="0" y="-5" transform-origin="0 0" transform="rotate(120)" />
+      <use xlink:href="#cog-part" x="0" y="-5" transform-origin="0 0" transform="rotate(180)" />
+      <use xlink:href="#cog-part" x="0" y="-5" transform-origin="0 0" transform="rotate(240)" />
+      <use xlink:href="#cog-part" x="0" y="-5" transform-origin="0 0" transform="rotate(300)" />
+      <path d="m-5,0a5,5 0 1,0 10,0a5,5 0 1,0 -10,0m5,0m-2,0a2,2 0 1,0 4,0a2,2 0 1,0 -4,0" fill-rule="evenodd"/>
+    </g>
+    <g id="cogs">
+      <use xlink:href="#cog" x="6" y="4" />
+      <use xlink:href="#cog" x="1" y="-5" transform-origin="1 -5" transform="scale(.6) rotate(31)" />
+      <use xlink:href="#cog" x="-4.5" y="-1.8" transform-origin="-4.5 -1.8" transform="scale(.4)" />
+    </g>
+    <g id="icon">
+      <path d="m37,32v-12h6v12" fill="#fff" stroke="#000" stroke-width="3" />
+      <path d="m30,40v-6q0-2,2-2h16q2,0,2,2v6z" fill="#fff" stroke="#000" stroke-width="3" />
+      <path d="m30,20h30l10,3h5v-4l-20-6h-25z" stroke-linecap="round" stroke-linejoin="round" fill="#fff" stroke="#000" stroke-width="3" />
+      <path d="m74,30c0,0 10,16 10,25a10,10 0 1,1 -20,0c0,0 0,-9 10-25z" fill="#fff" stroke="#000" stroke-width="3" />
+      <path d="m25,40h30q5,0,5,5v40q0,5-5,5h-30q-5,0-5-5v-40q0-5,5-5z" fill="#fff" stroke="#000" stroke-width="3"/>
+      <use xlink:href="#cogs" x="37" y="70" transform-origin="37 70" transform="scale(1.4)" />
+      <path d="m68,54l4,4l8-8" fill="none" stroke="#000" stroke-width="4" />
+    </g>
+    <g id="logo">
+      <rect x="5" y="5" width="90" height="90" rx="10" fill="#007222" stroke="#fff" stroke-width="3" filter="url(#glow)"/>
+      <use xlink:href="#icon" x="0" y="0" transform-origin="50 50" transform="scale(.8)" />
+    </g>
+    <g id="text">
+      <text x="0" y="3.1" style="font-size:0.4em;text-anchor:start;fill:#555">destesoft</text>
+      <text x="97" y="13" style="text-anchor:end;fill:#00571a">SOAP Client</text>
+      <text x="97" y="24" style="font-size:0.6em;text-anchor:end">for .NET</text>
+    </g>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bddbbd"/>
+      <stop offset="80%" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="100" fill="url('#bg-gradient')"/>
+  <use xlink:href="#logo" x="5" y="12.5" transform="scale(.8)" />
+  <use xlink:href="#text" x="87" y="36.5"/>
+</svg>
